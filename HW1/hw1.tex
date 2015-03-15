@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  hw1.Rnw
+%   
+%  Autor: Alexandro Mayoral <https://github.com/bluepill5>  
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{scrartcl}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+% Librerías necesarias
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{fullpage} % Maximiza el uso del espacio en la hoja.
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{dcolumn}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage[section]{placeins}
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{pifont}
+\usepackage[table,xcdraw]{xcolor}
+\onehalfspacing
+
+\author{Alexandro Mayoral, ...}
+\title{Tarea 1 Datos Categóricos}
+\date{15/04/2015}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\maketitle
+
+
+
+
+\textbf{Problema 1}
+Calcula un intervalo del 95\% de confianza para $p$, usando las gráficas del artìculo de Clopper y Pearson, para $n = 10, 20$ y apa $p.estimada = 0.3$, (es decir $x = 3, 6$) y comparala $vs.$ el intervalo usando la aproximación normal. Presenta también alguna de las opciones que te da R en la librería $binom$ ($binom.exact$, $binom.wilson$, $etc$).
+
+\textbf{Problema 2}
+Edad de primer embarazo y cáncer cervical: Para estudiar la relacion entre la edad en el primer embarazo y la aparición de cáncer cervical, se consideró un grupo de 49 mujeres con cáncercervical y 310 controles, se clasificaron según la edad en el momento de su primer embarazo: \\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |l|l|}
+\hline
+\textbf{Edad} & \cellcolor[HTML]{C0C0C0}\textbf{Cáncer} & \cellcolor[HTML]{C0C0C0}\textbf{Control} \\ \hline
+\textit{Menos de 25} & 42 & 203 \\ \hline
+\textit{Más de 25} & 7 & 107 \\ \hline
+\end{tabular}
+\end{table}
+
+Calcula o responde los siguientes puntos:
+
+\begin{itemize}
+  \item ¿Qué tipo de muestreo se tiene? 
+\end{itemize}
+
+\begin{itemize}
+  \item Los valores esperados bajo el modelo de no asociación(¿comó lo llamarías, modelo de independencia o de homogeneida?)
+\end{itemize}
+
+\begin{itemize}
+  \item ¿Qué es la correción de Yates?
+\end{itemize}
+
+\begin{itemize}
+  \item Calcula la Ji cuadrada con y sin correción de Yates ¿Qué concluyes?
+\end{itemize}
+
+\begin{itemize}
+  \item Muestra los valores de los residuales estandarizados
+\end{itemize}
+
+\begin{itemize}
+  \item ¿Cuál es la probabilidad de desarrollar cáncer cervical?
+\end{itemize}
+
+\begin{itemize}
+  \item Calcule el RR con su intervalo de confianza. Comenta o interpreta
+\end{itemize}
+
+\begin{itemize}
+  \item Calcule el OR con su intervalo de confianza. Comenta o interpreta
+\end{itemize}
+
+\textbf{Problema 3}
+Leer  el artículo sobre la traducción de ODDS RATIO, y hacer un resumen a lo más de una cuartilla
+
+
+\textbf{Problema 4}
+La siguiente tabla muestra el comportamiento de dos grupos de individuos sometidos a dos tratamientos difirentes, ¿Hay evidencias suficientes para decir que un tratmiento es mejor que otro? Utiliza la prueba exacta de Fisher. Construye las tablas $más extremas$ que la observada.\\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |c|c|c|}
+\hline
+\textbf{Presentó mejoría} & \multicolumn{3}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Tratamiento}} \\ \hline
+\textbf{} & \cellcolor[HTML]{C0C0C0}\textit{Medicamento A} & \cellcolor[HTML]{C0C0C0}\textit{Medicamento B} & \cellcolor[HTML]{C0C0C0}\textit{Total} \\ \hline
+\textit{\textbf{No}} & 6 & 3 & 9 \\ \hline
+\textit{\textbf{Si}} & 17 & 20 & 37 \\ \hline
+\textbf{Total} & 23 & 23 & 46 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\textbf{Problema 5}
+¿Es independiente la variable happiness de la variable income? Responde haciendo un análisis de correspondencias. Da los valores de la ji cuadrada y de la inercia. Interpreta el biplot.\\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |c|c|c|}
+\hline
+\textbf{} & \multicolumn{3}{l|}{\cellcolor[HTML]{C0C0C0}\textbf{Happiness}} \\ \hline
+\textbf{Income} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\textit{\textbf{Not to happy}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\textit{\textbf{Pretty happy}}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\textit{\textbf{Very happy}}} \\ \hline
+\textit{\textbf{Above Average}} & 49 & 294 & 272 \\ \hline
+\textit{\textbf{Average}} & 131 & 835 & 454 \\ \hline
+\textit{\textbf{Below Average}} & 208 & 527 & 185 \\ \hline
+\end{tabular}
+\end{table}
+ 
+
+\end{document}
