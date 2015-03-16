@@ -69,13 +69,21 @@ Calcula o responde los siguientes puntos:
   \item ¿Qué tipo de muestreo se tiene? 
 \end{itemize}
 
+Se tiene un esquema de muestreo multinomial producto ya que los marginales por columna se encuentran fijos, es decir se seleccionaron 49 casos de mujeres con cáncer y 310 mujeres que conformaran el grupo control.
+
 \begin{itemize}
   \item Los valores esperados bajo el modelo de no asociación(¿comó lo llamarías, modelo de independencia o de homogeneida?)
 \end{itemize}
 
+Bajo el esquema multinomial producto que considera a los marginales columna o fila fijas, y la hipótesis de asociación corresponde a la hipótesis de homogeneidad.
+
 \begin{itemize}
   \item ¿Qué es la correción de Yates?
 \end{itemize}
+
+La corrección de Yates se aplica a la prueba ji-cuadrada cuando al menos el valor de una frecuencia esperada es menor a 5. Y toma la siguiente forma:
+
+$X^2$
 
 \begin{itemize}
   \item Calcula la Ji cuadrada con y sin correción de Yates ¿Qué concluyes?
